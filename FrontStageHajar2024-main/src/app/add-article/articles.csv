@@ -1,0 +1,6 @@
+reference,designation,prixUnitaire,prixAchat,qteEnStock,category
+   A001,   Article        1,         100,      80.00,    TAB
+A002,      Article      150.00,     120.00,      5,      SMART
+A003,      Article      3200,        160.00,     8,      micro
+A004,      Article      4250,       200.00,      3,      casques
+A005,       rticle      5300        240.00,      12,     tablettes

@@ -1,0 +1,96 @@
+<!-- Carte d'ajout de catégorie -->
+<div class="card">
+  <div class="card-header">
+    <h2>Ajouter une Catégorie</h2>
+  </div>
+  <div class="card-body">
+
+
+    <form (ngSubmit)="onSubmit()" #categorieForm="ngForm">
+      <div class="form-group">
+        <label for="categorie-name">Nom de la catégorie</label>
+        <input
+          type="text"
+          id="categorie-name"
+          class="form-control"
+          required
+          [(ngModel)]="categorie.name"
+          name="name"
+          #name="ngModel"
+        />
+
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input
+          type="file"
+          id="image"
+          (change)="onFileSelected($event)"
+          class="form-control"
+        />
+      </div>
+      <!--ajouter plusieurs articles-->
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Ajouter des categories</h2>
+        </div>
+        <div class="card-body scrollable">
+          <form (ngSubmit)="onSubmit()" #articleForm="ngForm">
+            <!-- Champs pour l'ajout d'un seul article (existant) -->
+            <!-- ... -->
+
+            <div class="form-group">
+              <label for="file">Importer un fichier (CSV ou Excel):</label>
+              <input
+                type="file"
+                id="file"
+                (change)="onFileSelected($event)"
+                class="form-control"
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+              <button type="submit" class="btn btn-primary"   (change)="onFileSelected($event)">Ajouter</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true" [ngClass]="{'show': showModal}">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="successModalLabel">Succès!</h5>
+              <button type="button" class="close" (click)="hideModal()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">Les categories ont été ajoutés avec succès.</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="hideModal()">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="categorieForm.invalid"
+        >
+          Sauvegarder
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
